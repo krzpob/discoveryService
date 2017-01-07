@@ -24,6 +24,8 @@ backend=biber]{biblatex}
 
 \author{Krzysztof Pobożan}
 
+\addbibresource{discoveryservice.bib}
+
 \begin{document}
 	\begin{frame}
 		\maketitle
@@ -50,5 +52,37 @@ backend=biber]{biblatex}
 		Przekłada spójność danych nad dostępność.
 		Dla koordynacji to jest dobre, jednak dla discovery service, lepiej mieć informacje częściowo fałszywe niż nie mieć żadnych informacji.
 		
+	\end{frame}
+	\section{Eureka}
+	\begin{frame}{Czym jest EUREKA}
+		Serwis bazujący na REST do lokalizacji usług w celu równoważenia i zapobiegania utraty dostępu.\\
+		Zaprojektowany do pracy w AWS.\\
+		Głównym modułem jest \textbf{Eureka Serwer}, Netflix dostrcza również \textbf{Eureka Client} z prostym loadbalancigiem typu round-rubin.
+	\end{frame}
+	\begin{frame}{Jak działa Eureka?}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.6\linewidth]{eureka_architecture}
+			\caption{Architektura usługi Eureka}
+			\label{fig:eureka_architecture}
+			\end{figure}
+
+	\end{frame}
+	\begin{frame}{Co daje spring-cloud?}
+		\begin{itemize}
+			\item Usługi rejestrowane są pod nazwą jak właściwość:  spring.application.name
+			\item Proste uruchomienie swoich serwerów eureka
+			\item Proste uzycie klienta - annotacja
+			\item Wsparcie w RestTemplate dla eureki - w urlu wystarczy posłużyć się nazwą serwisu zamiast nazwy hosta.
+		\end{itemize}
+	\end{frame}
+	\section{DEMO}
+	\begin{frame}{DEMO}
+		\href{https://github.com/krzpob/sample-eureka}{Przykład użyty w demo}
+	\end{frame}
+	\nocite{multi-zone}
+	\nocite{netflix:eureka}
+	\begin{frame}{Bibliografia}
+		\printbibliography
 	\end{frame}
 \end{document}
